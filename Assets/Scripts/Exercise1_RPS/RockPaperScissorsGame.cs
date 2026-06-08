@@ -31,10 +31,15 @@
  *
  */
 
+
+
+//
 using UnityEngine;
 
 public class RockPaperScissorsGame : MonoBehaviour
 {
+   //Enum gives each choice a unique integer value, starting from 0. 
+   //Values are assigned as such: Rock = 0, Paper = 1, Scissors = 2, Lizard = 3, Spock = 4.
     public enum Choice
     {
         Rock = 0,
@@ -46,6 +51,7 @@ public class RockPaperScissorsGame : MonoBehaviour
 
     public void RockPaperScissors(int playerChoice)
     {
+        // Validate player choice
         if (playerChoice < 0 || playerChoice > 4)
         {
             Debug.LogError("Invalid player choice. Please choose a number between 0 and 4.");
