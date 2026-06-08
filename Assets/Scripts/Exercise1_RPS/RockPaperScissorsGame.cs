@@ -44,33 +44,25 @@ public class RockPaperScissorsGame : MonoBehaviour
         Spock = 4,
     }
 
-    public void RockPaperScissors(Choice playerChoice)
+    public void RockPaperScissors(int playerChoice)
     {
-        Debug.Log("You chose: " + playerChoice);
+        if (playerChoice < 0 || playerChoice > 4)
+        {
+            Debug.LogError("Invalid player choice. Please choose a number between 0 and 4.");
+            return;
+        }
+
+        Choice player = (Choice)playerChoice;
+
+        Debug.Log("You chose: " + player);
 
         Choice computerChoice = (Choice)Random.Range(0, 5);
 
         Debug.Log("Computer chose: " + computerChoice);
 
-        if (playerChoice == computerChoice)
+        if (player == computerChoice)
         {
-            Debug.Log("It's a tie! Both chose " + playerChoice);
+            Debug.Log("It's a tie!");
             return;
         }
-
-        if (
-            (playerChoice == Choice.Rock && (computerChoice == Choice.Scissors || computerChoice == Choice.Lizard)) ||
-            (playerChoice == Choice.Paper && (computerChoice == Choice.Rock || computerChoice == Choice.Spock)) ||
-            (playerChoice == Choice.Scissors && (computerChoice == Choice.Paper || computerChoice == Choice.Lizard)) ||
-            (playerChoice == Choice.Lizard && (computerChoice == Choice.Paper || computerChoice == Choice.Spock)) ||
-            (playerChoice == Choice.Spock && (computerChoice == Choice.Scissors || computerChoice == Choice.Rock))
-        )
-        {
-            Debug.Log("You win!");
-        }
-        else
-        {
-            Debug.Log("You lose!");
-        }
     }
-}
