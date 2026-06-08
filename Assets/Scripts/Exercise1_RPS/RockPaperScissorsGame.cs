@@ -33,7 +33,7 @@
 
 
 
-//
+
 using UnityEngine;
 
 public class RockPaperScissorsGame : MonoBehaviour
@@ -58,20 +58,30 @@ public class RockPaperScissorsGame : MonoBehaviour
             return;
         }
 
+        //Convert the integer player choice to the corresponding enum.
+        //Example : If playerChoice is 0, it will be converted to Choice.Rock; and so on.
         Choice player = (Choice)playerChoice;
 
         Debug.Log("You chose: " + player);
 
+        //Generate a random choice for the computer using Random.Range(0, 5) returns 0, 1, 2, 3, or 4.
         Choice computerChoice = (Choice)Random.Range(0, 5);
 
         Debug.Log("Computer chose: " + computerChoice);
 
+        //Self explanatory, checks if both player and computer made the same choice, this results in a tie.
         if (player == computerChoice)
         {
             Debug.Log("It's a tie!");
             return;
         }
-
+        //Check all possible winning combinations for the player.
+        //
+        // Rock beats scissors and lizard
+        //Paper beats rock and spock
+        //Scissors beats paper and lizard
+        //Lizard beats paper and spock
+        //Spock beats scissors and rock
         if (
             (player == Choice.Rock && (computerChoice == Choice.Scissors || computerChoice == Choice.Lizard)) ||
             (player == Choice.Paper && (computerChoice == Choice.Rock || computerChoice == Choice.Spock)) ||
@@ -80,6 +90,7 @@ public class RockPaperScissorsGame : MonoBehaviour
             (player == Choice.Spock && (computerChoice == Choice.Scissors || computerChoice == Choice.Rock))
         )
         {
+        // One of the winning conditions is met, player wins.
             Debug.Log("You win!");
         }
         else
