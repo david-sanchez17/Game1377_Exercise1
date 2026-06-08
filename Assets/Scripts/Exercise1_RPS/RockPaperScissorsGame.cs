@@ -54,9 +54,23 @@ public class RockPaperScissorsGame : MonoBehaviour
 
         if (playerChoice == computerChoice)
         {
-            Debug.Log("It's a tie! Both chose " + playerChoice); 
+            Debug.Log("It's a tie! Both chose " + playerChoice);
+            return;
         }
-        else if
-            
 
+        if (
+            (playerChoice == Choice.Rock && (computerChoice == Choice.Scissors || computerChoice == Choice.Lizard)) ||
+            (playerChoice == Choice.Paper && (computerChoice == Choice.Rock || computerChoice == Choice.Spock)) ||
+            (playerChoice == Choice.Scissors && (computerChoice == Choice.Paper || computerChoice == Choice.Lizard)) ||
+            (playerChoice == Choice.Lizard && (computerChoice == Choice.Paper || computerChoice == Choice.Spock)) ||
+            (playerChoice == Choice.Spock && (computerChoice == Choice.Scissors || computerChoice == Choice.Rock))
+        )
+        {
+            Debug.Log("You win!");
+        }
+        else
+        {
+            Debug.Log("You lose!");
+        }
     }
+}
