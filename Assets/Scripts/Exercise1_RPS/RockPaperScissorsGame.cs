@@ -35,7 +35,7 @@ using UnityEngine;
 
 public class RockPaperScissorsGame : MonoBehaviour
 {
-   public enum Choice
+    public enum Choice
     {
         Rock = 0,
         Paper = 1,
@@ -65,4 +65,20 @@ public class RockPaperScissorsGame : MonoBehaviour
             Debug.Log("It's a tie!");
             return;
         }
+
+        if (
+            (player == Choice.Rock && (computerChoice == Choice.Scissors || computerChoice == Choice.Lizard)) ||
+            (player == Choice.Paper && (computerChoice == Choice.Rock || computerChoice == Choice.Spock)) ||
+            (player == Choice.Scissors && (computerChoice == Choice.Paper || computerChoice == Choice.Lizard)) ||
+            (player == Choice.Lizard && (computerChoice == Choice.Paper || computerChoice == Choice.Spock)) ||
+            (player == Choice.Spock && (computerChoice == Choice.Scissors || computerChoice == Choice.Rock))
+        )
+        {
+            Debug.Log("You win!");
+        }
+        else
+        {
+            Debug.Log("You lose!");
+        }
     }
+}
