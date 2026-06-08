@@ -17,7 +17,9 @@
  * 4. Ties occur when both the player and computer choose the same option.
  * 5. All game results (player choice, computer choice, and outcome) should be output using Debug.Log.
  * 6. Use an enum to represent the five choices instead of strings.
- * 7. Update the OnClick() method in the editor to use enums instead of strings.
+ * 7. Update the OnClick() method in the editor to use enums instead of strings. 
+ *      NOTE: OnClick cannot directly take enums, so what would you use instead to pass in?
+ *      
  * 
  * Instructions:
  * - Attach the script to any active GameObject in your Unity scene.
@@ -27,7 +29,7 @@
  * Hint:
  * - Start by just fixing up the strings and doing Rock Paper Scissors. 
  * - Once you have that working, add in the Lizard and Spock options and update the game logic accordingly.
- * - Lastly, change the method to use enums instead of strings.
+ * - OnClick can't take enums, but what does a compiler read enums as? Remember, casting can change one type to another. 
  *
  */
 
@@ -35,12 +37,22 @@ using UnityEngine;
 
 public class RockPaperScissorsGame : MonoBehaviour
 {
-    private string[] choices = { "rock", "paper", "scissors" };
+    public enum Choice
+    {
+        invalid,
+        rock,
+        paper,
+        scissors,
+        lizard,
+        spock
+    }
+
+    private string[] choices = { "rock", "paper", "scissors", "lizard", "spock" };
 
     public void RockPaperScissors(string playerChoice)
     {
         Debug.Log("You chose: " + playerChoice);
-        
+
         string computerChoice = choices[0];
         Debug.Log("Computer chose: " + computerChoice);
 
