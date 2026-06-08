@@ -35,27 +35,28 @@ using UnityEngine;
 
 public class RockPaperScissorsGame : MonoBehaviour
 {
-    private string[] choices = { "rock", "paper", "scissors" };
+   public enum Choice
+    {
+        Rock,
+        Paper,
+        Scissors,
+        Lizard,
+        Spock
+    }
 
-    public void RockPaperScissors(string playerChoice)
+    public void RockPaperScissors(Choice playerChoice)
     {
         Debug.Log("You chose: " + playerChoice);
-        
-        string computerChoice = choices[0];
+
+        Choice computerChoice = (Choice)Random.Range(0, 5);
+
         Debug.Log("Computer chose: " + computerChoice);
 
-        if (playerChoice == "rock")
+        if (playerChoice == computerChoice)
         {
-            Debug.Log("It's a tie! Both chose " + playerChoice);
+            Debug.Log("It's a tie! Both chose " + playerChoice); 
         }
-        else if (playerChoice == "paper")
-        {
-            Debug.Log("You win! " + playerChoice + " beats " + computerChoice);
-        }
-        else
-        {
-            Debug.Log("You lose! " + computerChoice + " beats " + playerChoice);
-        }
+        else if
+            
+
     }
-}
-//Testing
