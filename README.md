@@ -18,6 +18,7 @@ the computer randomly selects its choice, and the game determines the winner bas
 5. All game results (player choice, computer choice, and outcome) should be output using Debug.Log.
 6. Use an enum to represent the five choices instead of strings.
 7. Update the OnClick() method in the editor to use enums instead of strings.
+   - NOTE: OnClick cannot directly take enums, so what would you use instead to pass in? 
 
 **Instructions:**
 - Attach the **RockPaperScissorsGame** script to any active GameObject in your Unity scene.
@@ -27,4 +28,4 @@ the computer randomly selects its choice, and the game determines the winner bas
 **Hints:**
 - Start by just fixing up the strings and doing Rock Paper Scissors. 
 - Once you have that working, add in the Lizard and Spock options and update the game logic accordingly.
-- Lastly, change the method to use enums instead of strings.
+- OnClick can't take enums, but what does a compiler read enums as? Remember, casting can change one type to another.
