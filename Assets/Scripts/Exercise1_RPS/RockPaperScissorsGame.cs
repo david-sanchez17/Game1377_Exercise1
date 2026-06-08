@@ -37,11 +37,11 @@ public class RockPaperScissorsGame : MonoBehaviour
 {
    public enum Choice
     {
-        Rock,
-        Paper,
-        Scissors,
-        Lizard,
-        Spock
+        Rock = 0,
+        Paper = 1,
+        Scissors = 2,
+        Lizard = 3,
+        Spock = 4,
     }
 
     public void RockPaperScissors(Choice playerChoice)
